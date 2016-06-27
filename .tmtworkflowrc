@@ -23,12 +23,12 @@
 
   "lazyDir": ["../slice"],  //gulp-lazyImageCSS 寻找目录(https://github.com/weixin/gulp-lazyimagecss)
 
-  "supportWebp": true,
+  "supportWebp": false,
 
   "supportREM": true,
 
   "supportChanged": true,
 
-  "reversion": true
+  "reversion": false
 
 }
