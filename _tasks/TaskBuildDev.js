@@ -9,6 +9,7 @@ var lazyImageCSS = require('gulp-lazyimagecss');  // 自动为图片样式添加
 var postcss = require('gulp-postcss');   // CSS 预处理
 var posthtml = require('gulp-posthtml');  // HTML 预处理
 var sass = require('gulp-sass');
+var webpack = require('gulp-webpack');
 // 注: Dev 阶段不开启 px -> rem
 
 var paths = {
@@ -27,6 +28,7 @@ var paths = {
     },
     dev: {
         dir: './dev',
+        js: './dev/js',
         css: './dev/css',
         html: './dev/html'
     }
@@ -47,7 +49,7 @@ module.exports = function (gulp, config) {
     };
 
     // 自动刷新
-    var reloadHandler = function(){
+    var reloadHandler = function () {
         config.livereload && bs.reload();
     };
 
@@ -72,6 +74,7 @@ module.exports = function (gulp, config) {
     function copyMedia() {
         return copyHandler('media');
     }
+
     //复制操作 end
 
     //编译 less
@@ -109,6 +112,15 @@ module.exports = function (gulp, config) {
             .pipe(gulp.dest(paths.dev.html))
             .on('data', function () {
             })
+            .on('end', reloadHandler)
+    }
+
+    //webpack js
+
+    function webpackJs() {
+        return gulp.src(paths.src.js)
+            .pipe(webpack(require('./webpack.config.js')))
+            .pipe(gulp.dest(paths.dev.js))
             .on('end', reloadHandler)
     }
 
@@ -165,7 +177,8 @@ module.exports = function (gulp, config) {
                     var tmp = file.replace('src', 'dev');
                     del([tmp]);
                 } else {
-                    copyHandler('js', file);
+                    //copyHandler('js', file);
+                    webpackJs();
                 }
                 break;
 
@@ -186,9 +199,9 @@ module.exports = function (gulp, config) {
                     var tmp = file.replace('src', 'dev').replace(ext, '.css');
                     del([tmp]);
                 } else {
-                    if(ext === '.less'){
+                    if (ext === '.less') {
                         compileLess();
-                    }else{
+                    } else {
                         compileSass();
                     }
                 }
@@ -259,7 +272,8 @@ module.exports = function (gulp, config) {
         gulp.parallel(
             copyImg,
             copySlice,
-            copyJs,
+            //copyJs,
+            webpackJs,
             copyMedia,
             compileLess,
             compileSass,
