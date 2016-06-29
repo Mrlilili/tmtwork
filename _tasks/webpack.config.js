@@ -1,29 +1,19 @@
 var fs = require('fs');
 var devJsPath = './src/js/';
 var entryObj = {};
-fs.readdir(devJsPath, function (err, files) {
-    if (err) {
-        console.log(err);
-        return;
+
+
+fs.readdirSync(devJsPath).forEach(function (fileName) {
+    var fileNameArray = fileName.split('.')
+    //console.log(fileNameArray[0]);
+    if (fileNameArray[1] == 'js') {
+        entryObj[fileNameArray[0]] = devJsPath+fileName;
     }
-    files.forEach(function (fileName) {
-        fs.stat(devJsPath + fileName, function (err, stats) {
-            if (err) throw  err;
-            if (stats.isFile()) {
-                entryObj['test'] = devJsPath + fileName;
-            }
-        })
-        console.log(entryObj);
-    });
-
 })
-
-
+console.log(entryObj);
 
 module.exports = {
-    entry: {
-        app: './src/js/index.js'
-    },
+    entry:entryObj,
     output: {
         filename: '[name].js'
     }
