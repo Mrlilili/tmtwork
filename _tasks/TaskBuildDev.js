@@ -8,6 +8,7 @@ var bs = require('browser-sync').create();  // 自动刷新浏览器
 var lazyImageCSS = require('gulp-lazyimagecss');  // 自动为图片样式添加 宽/高/background-size 属性
 var postcss = require('gulp-postcss');   // CSS 预处理
 var posthtml = require('gulp-posthtml');  // HTML 预处理
+var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var webpack = require('gulp-webpack');
 // 注: Dev 阶段不开启 px -> rem
@@ -94,9 +95,10 @@ module.exports = function (gulp, config) {
     //编译 sass
     function compileSass() {
         return gulp.src(paths.src.sass)
-            .pipe(sass())
-            .on('error', sass.logError)
+            //.pipe(sourcemaps.init())
+            .pipe(sass().on('error', sass.logError))
             .pipe(lazyImageCSS({imagePath: lazyDir}))
+            //.pipe(sourcemaps.write('./maps'))
             .pipe(gulp.dest(paths.dev.css))
             .on('data', function () {
             })

@@ -6,7 +6,7 @@
 
 /* Import Less files */
 
-@import "lib-mixins";
+
 @import "lib-reset";
 
 /* Import lib-rem.less if supportREM opened. */
@@ -14,8 +14,6 @@
 
 /* Import modules like `header.less` */
 
-@import "header";
-@import "tips";
 .test{
   height: 100px;
   width:100px;
