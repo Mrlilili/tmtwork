@@ -3,5 +3,6 @@
  * fas
  */
 require('./lib/t1');
-require('../css/style-b.css');
-console.log('123465');
+require('../css/style-b.scss');
+//require('./lib/t1.js');
+//console.log('123465');
