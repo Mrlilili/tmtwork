@@ -27,12 +27,15 @@
 //}, 5000)
 
 
-var f1 = require('bundle?lazy!./lib/t1.js');
-var f2 = require('bundle?lazy!./lib/t2.js');
-var f3 = require('bundle?lazy!./lib/jquery.js');
-f3(function () {
-    console.log($.fn.jquery);
-})
+//var f1 = require('bundle?lazy!./lib/t1.js');
+//var f2 = require('bundle?lazy!./lib/t2.js');
+//var f3 = require('bundle?lazy!./lib/jquery.js');
+//f3(function () {
+//    console.log($.fn.jquery);
+//})
+require('./lib/jquery.js')
+var tpl = require('./lib/templates');
+$('body').html(tpl())
 //require('../css/style-b.scss');
 //require('./lib/t1.js');
 //console.log('123465');
