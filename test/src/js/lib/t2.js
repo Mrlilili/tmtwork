@@ -1,0 +1,1 @@
+module.exports = 'this is t2.js';

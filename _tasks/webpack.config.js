@@ -15,6 +15,7 @@ console.log(entryObj);
 module.exports = {
     entry: entryObj,
     output: {
+        publicPath:'../js/',
         filename: '[name].js'
     },
     resolve: {
