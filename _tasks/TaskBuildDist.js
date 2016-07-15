@@ -23,7 +23,7 @@ var RevAll = require('gulp-rev-all');   // reversion
 var revDel = require('gulp-rev-delete-original');
 var sass = require('gulp-sass');
 var changed = require('./common/changed')();
-
+var webpack = require('gulp-webpack');
 var paths = {
     src: {
         dir: './src',
@@ -42,6 +42,7 @@ var paths = {
         css: './tmp/css',
         img: './tmp/img',
         html: './tmp/html',
+        js:'./tmp/js',
         sprite: './tmp/sprite'
     },
     dist: {
@@ -141,8 +142,9 @@ module.exports = function (gulp, config) {
     //JS 压缩
     function uglifyJs() {
         return gulp.src(paths.src.js, {base: paths.src.dir})
+            .pipe(webpack(require('./webpack.config.js')))
             .pipe(uglify())
-            .pipe(gulp.dest(paths.tmp.dir));
+            .pipe(gulp.dest(paths.tmp.js));
     }
 
     //雪碧图压缩
