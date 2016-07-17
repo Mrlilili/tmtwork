@@ -3,6 +3,6 @@ var f3 = require('bundle?lazy!./lib/jquery.js');
 f1(function(t){
     console.log(t);
 })
-f3(function () {
-    console.log($.fn.jquery);
-})
+//f3(function () {
+//    console.log($.fn.jquery);
+//})

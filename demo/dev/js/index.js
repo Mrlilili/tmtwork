@@ -96,13 +96,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var f1 = __webpack_require__(1);
-	var f3 = __webpack_require__(3);
+	var f3 = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"bundle?lazy!./lib/jquery.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	f1(function(t){
 	    console.log(t);
 	})
-	f3(function () {
-	    console.log($.fn.jquery);
-	})
+	//f3(function () {
+	//    console.log($.fn.jquery);
+	//})
 
 
 /***/ },
@@ -112,17 +112,6 @@
 	module.exports = function(cb) {
 		__webpack_require__.e/* nsure */(1, function(require) {
 			cb(__webpack_require__(2));
-		});
-	}
-
-/***/ },
-/* 2 */,
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = function(cb) {
-		__webpack_require__.e/* nsure */(2, function(require) {
-			cb(__webpack_require__(4));
 		});
 	}
 

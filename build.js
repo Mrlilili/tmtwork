@@ -9,11 +9,12 @@ var dirConfig = {
     js: './js',
     slice: './slice'
 }
-if(fs.existsSync(projectName)){
+if (fs.existsSync(projectName)) {
     console.log('项目目录已存在');
-}else{
+} else {
     fs.mkdirSync(projectName)
     Object.keys(dirConfig).forEach(function (val) {
         fs.mkdirSync(path.join(projectName, dirConfig[val]))
     })
+    console.log('项目构建成功');
 }
