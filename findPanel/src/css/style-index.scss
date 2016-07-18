@@ -1,0 +1,74 @@
+@import "base";
+
+body {
+  font-size: 12px;
+  color: #666;
+}
+
+#findPanelBox {
+  width: 700px;
+}
+
+#tabsTitle {
+  overflow: hidden;
+  .title {
+    font-weight: bolder;
+    padding: 0 15px;
+  }
+  .left {
+    float: left;
+  }
+  .title{
+    float: left;
+  }
+  .tabs {
+    list-style: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    .tabsItem {
+      float: left;
+      cursor: pointer;
+      margin: 0 8px;
+      &.active {
+        color: #268fd6;
+        text-decoration: underline;
+      }
+      &:hover {
+        color: #268fd6;
+      }
+    }
+  }
+  .right {
+    float: right;
+  }
+}
+
+#tabBox {
+  clear: both;
+  margin-top: 15px;
+  overflow: hidden;
+  .item {
+    width: 158px;
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 25px;
+    .imgBox {
+      width: 158px;
+      height: 120px;
+      img{
+        width: 100%;
+
+      }
+    }
+    .infoBox {
+      p {
+        margin: 0;
+        line-height: 18px;
+        span {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

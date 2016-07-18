@@ -15,18 +15,19 @@ console.log(entryObj);
 module.exports = {
     entry: entryObj,
     output: {
-        publicPath:'../js/',
+        publicPath: '../js/',
         filename: '[name].js'
     },
     resolve: {
         root: ['./'],
         alias: {
             //'jquery': 'lib/jquery/jquery',
-            'test':'lib/t1'
+            'test': 'lib/t1'
         }
     },
     module: {
         loaders: [
+            {test: /\.tpl$/, loader: "text-loader"},
             {test: /\.css$/, loader: "style-loader!css-loader"},
             {test: /\.png$/, loader: "url-loader?limit=100000"},
             {test: /\.jpg$/, loader: "file-loader"},
