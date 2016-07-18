@@ -62,12 +62,13 @@
 	    defaults: {
 	        content: ''
 	    }
-	});
+	})
+
 	avalon.component('ms-tabTitle', {
 	    template: __webpack_require__(5),
 	    defaults: {
 	        tabName: []
-	    }
+	    },
 	})
 
 	var renderConfig = {
@@ -18326,7 +18327,7 @@
 /* 5 */
 /***/ function(module, exports) {
 
-	module.exports = "<div id=\"tabsTitle\">\r\n    <div class=\"left\">\r\n        <span class=\"title\">推荐视频</span>\r\n        <ul class=\"tabs\">\r\n            <slot name=\"tabName\"></slot>\r\n            <!--<li class=\"tabsItem\"  ms-for=\"el in @tabName\">{{el}}</li>-->\r\n        </ul>\r\n    </div>\r\n    <!--<div class=\"right\">更多精彩</div>-->\r\n</div>"
+	module.exports = "<div id=\"tabsTitle\">\r\n    <div class=\"left\">\r\n        <span class=\"title\">推荐视频</span>\r\n        <ul class=\"tabs\">\r\n            <li class=\"tabsItem\"  ms-for=\"el in @tabName\">{{el}}</li>\r\n        </ul>\r\n        <slot name=\"test\" />\r\n    </div>\r\n    <!--<div class=\"right\">更多精彩</div>-->\r\n</div>"
 
 /***/ }
 /******/ ]);

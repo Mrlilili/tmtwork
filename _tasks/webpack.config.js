@@ -7,7 +7,7 @@ fs.readdirSync(devJsPath).forEach(function (fileName) {
     var fileNameArray = fileName.split('.')
     //console.log(fileNameArray[0]);
     if (fileNameArray[1] == 'js') {
-        entryObj[fileNameArray[0]] = devJsPath + fileName;
+        entryObj[fileNameArray[0]] = devJsPath + fileName
     }
 })
 console.log(entryObj);

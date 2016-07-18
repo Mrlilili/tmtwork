@@ -16,12 +16,13 @@ avalon.component('ms-tabBox', {
     defaults: {
         content: ''
     }
-});
+})
+
 avalon.component('ms-tabTitle', {
     template: require('./template/tabTitle.tpl'),
     defaults: {
         tabName: []
-    }
+    },
 })
 
 var renderConfig = {
