@@ -20,18 +20,34 @@ module.exports = {
     },
     resolve: {
         root: ['./'],
-        alias: {
-            //'jquery': 'lib/jquery/jquery',
-            'test': 'lib/t1'
-        }
+        alias: {}
     },
     module: {
         loaders: [
-            {test: /\.tpl$/, loader: "text-loader"},
-            {test: /\.css$/, loader: "style-loader!css-loader"},
-            {test: /\.png$/, loader: "url-loader?limit=100000"},
-            {test: /\.jpg$/, loader: "file-loader"},
-            {test: /\.scss$/, loaders: ["style", "css?sourceMap", "sass?sourceMap"]}
+            {
+                test: /\.tpl$/,
+                loader: "text-loader"
+            },
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader"
+            },
+            {
+                test: /\.png$/,
+                loader: "url-loader?limit=100000"
+            },
+            {
+                test: /\.jpg$/,
+                loader: "file-loader"
+            },
+            {
+                test: /\.scss$/,
+                loaders: ["style", "css", "sass"]
+            },
+            {
+                test: /\.(ttf|eot|svg|woff2?)((\?|#)[^\'\"]+)?$/,
+                loader: 'url-loader'
+            }
         ]
     },
 

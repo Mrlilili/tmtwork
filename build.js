@@ -13,8 +13,9 @@ if (fs.existsSync(projectName)) {
     console.log('项目目录已存在');
 } else {
     fs.mkdirSync(projectName)
+    fs.mkdirSync(path.join(projectName,'src'))
     Object.keys(dirConfig).forEach(function (val) {
-        fs.mkdirSync(path.join(projectName, dirConfig[val]))
+        fs.mkdirSync(path.join(path.join(projectName,'src'), dirConfig[val]))
     })
     console.log('项目构建成功');
 }
