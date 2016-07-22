@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>modal</title>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
-<body>
+<body ms-controller="test">
+<ms-modal ms-widget="@config">
+    <p>弹窗的内容</p>
+    <p>弹窗的内容</p>
+    <p>弹窗的内容结束!</p>
+</ms-modal>
+<p><button ms-click="@show">显示弹出</button></p>
+
 
 <%- js('index.js') %>
 </body>

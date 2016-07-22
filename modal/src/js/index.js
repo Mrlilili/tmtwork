@@ -3,9 +3,23 @@
  * fas
  */
 var avalon = require('./lib/avalon');
-require('./modal');
+require('./component/modal');
+
 
 avalon.define({
-    $id:'test',
+    $id: 'test',
+    show: function () {
+        this.config.isShow = true;
+    },
+    config: {
+        isShow: false,
+        onCancel: function () {
+            alert('cancel');
+        },
+        onOk: function () {
+            alert('ok');
+        },
 
+        title: '这是测试'
+    }
 })
